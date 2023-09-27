@@ -1,5 +1,5 @@
 <template>
-  <header>
-    Air project
-  </header>
+  <main>
+    <v-card class="bg-lm-green" text="Hello"/>
+  </main>
 </template>

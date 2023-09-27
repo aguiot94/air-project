@@ -1,5 +1,3 @@
-import './assets/main.css'
-
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import App from './App.vue'
@@ -12,6 +10,17 @@ import * as directives from 'vuetify/directives'
 const vuetify = createVuetify({
   components,
   directives,
+  theme: {
+    defaultTheme: 'airProjectTheme',
+    themes: {
+      airProjectTheme: {
+        dark: false,
+        colors: {
+          'lm-green': '#188803',
+        }
+      }
+    },
+  },
 })
 
 const app = createApp(App)
