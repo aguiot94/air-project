@@ -1,7 +1,6 @@
-type Drone = {
-  id: string;
-  x: number;
-  y: number;
+import type LocatedItem from './located-item.type';
+
+type Drone = LocatedItem & {
   autonomy: number;
 }
 

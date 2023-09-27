@@ -1,7 +1,9 @@
 import { defineStore } from 'pinia';
 
 import dronesRepository from '@/repositories/drones.repository';
-import Drone from '@/types/drone.type';
+import type Drone from '@/types/drone.type';
+
+import { useUiStore } from './ui';
 
 type DronesState = {
   drones: Drone[];
@@ -11,16 +13,16 @@ export const useDroneStore = defineStore('drone', {
     state: (): DronesState => ({
         drones: [],
     }),
-    getters: {
-      getDrones(state){
-          return state.drones;
-        }
-    },
     actions: {
-      async fetchDrones() {
+      async fetchDrones(): Promise<void> {
+        useUiStore().setLoadingState(true);
+
         const data = await dronesRepository.getDrones()
-          .catch((error) => {
-            console.log(error);
+          .catch(() => {
+            useUiStore().setErrorState(true);
+          })
+          .finally(() => {
+            useUiStore().setLoadingState(false);
           })
 
         this.drones = data as Drone[];
