@@ -8,3 +8,11 @@ export type Product = {
 export type Store = LocatedItem & {
   stock: Product[];
 };
+
+export type ProductStock = {
+  productId: string;
+  stock: {
+    id: string;
+    quantity: number;
+  }[];
+};

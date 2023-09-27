@@ -17,6 +17,7 @@ const vuetify = createVuetify({
         dark: false,
         colors: {
           'lm-green': '#188803',
+          'error': '#fc1c03',
         }
       }
     },

@@ -5,7 +5,7 @@ import type Order from '@/types/order.type';
 
 import { useUiStore } from './ui';
 
-type OrderState = {
+export type OrderState = {
   orders: Order[];
 }
 

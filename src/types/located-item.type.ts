@@ -1,7 +1,7 @@
-type LocatedItem = {
+import Location from './location.type';
+
+type LocatedItem = Location & {
   id: string;
-  x: number;
-  y: number;
 }
 
 export default LocatedItem;

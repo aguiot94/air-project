@@ -26,6 +26,16 @@ export const useDroneStore = defineStore('drone', {
           })
 
         this.drones = data as Drone[];
+      },
+      updateDroneState(droneToUpdate: Drone, autonomyUsed: number) {
+        const droneIndex = this.drones.findIndex((drone: Drone) => droneToUpdate.id === drone.id);
+
+        const currentDrone: Drone = this.drones[droneIndex];
+
+        this.drones.splice(droneIndex, 1, {
+          ...droneToUpdate,
+          autonomy: currentDrone.autonomy - autonomyUsed,
+        })
       }
     },
 })
